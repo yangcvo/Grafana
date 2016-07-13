@@ -61,3 +61,10 @@ Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格
 * 使用 InfluxDB 作为指标数据源，注释源和仪表盘存储
 * 查询编辑器
 * OpenTSDB
+
+
+
+### 温馨提示：
+
+     grafana的版本和grafana-zabbix的版本必须匹配，否则会出现异常。
+     本文以grafana2.5版本为例讲解，如果后面grafana和grafana-zabbix更新，需要将2个版本匹配即可。
