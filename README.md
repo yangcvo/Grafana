@@ -75,3 +75,4 @@ Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格
      
      
 
+![](https://cloud.githubusercontent.com/assets/4932851/8288883/9ec5b240-1921-11e5-9e0f-04d075b885e9.gif)
