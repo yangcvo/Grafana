@@ -18,6 +18,9 @@ Granfana官网：http://grafana.org
 LDAP集成：http://docs.grafana.org/installation/ldap/
 
 
+### zabbix+Grafana 结合监控与使用：
+
+[ zabbix+Grafana 结合监控与使用](http://blog.yangcvo.me/2016/07/13/zabbix-Grafana安装使用结合/)
 
 Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格；支持白天和夜间模式；多个数据源；Graphite 和 InfluxDB 查询编辑器等等。
 
