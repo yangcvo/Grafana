@@ -18,7 +18,7 @@ Granfana官网：http://grafana.org
 LDAP集成：http://docs.grafana.org/installation/ldap/
 
 
-### zabbix+Grafana 结合监控与使用：
+### zabbix+Grafana 结合监控与使用安装使用文档：
 
 [ zabbix+Grafana 结合监控与使用](http://blog.yangcvo.me/2016/07/13/zabbix-Grafana安装使用结合/)
 
@@ -74,5 +74,81 @@ Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格
      
      
      
+
+## 入门Grafana-zabbix 
+
+你经过安装和配置 Grafana-的zabbix数据源，让我们创建一个简单的仪表板。
+
+### 简单图
+
+新图面板添加到仪表板。从下拉菜单中选择指标或开始键入筛选结果
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-metrics_filtering.png)
+
+
+让我们创建15分钟，平均处理器负载图形。选择主机组，主机，应用程序（可选-你可以留空）和项目。
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-processor_load.png)
+
+
+多个项目在一个图
+
+您可以使用很多度量字段内正则表达式项目建设图。Grafana使用JavaScript正则表达式的实现。例如，如果你需要显示的CPU时间（用户，系统，IOWAIT等），你可以使用这个表达式在项目现场创建图表：
+
+
+```
+/CPU (?!idle).* time/
+```
+![](http://docs.grafana-zabbix.org/img/getstarting-regex_cpu_time.png)
+
+
+使用正则表达式另一种情况是在比较了不同主机的相同指标。使用`/.*/`的正则表达式显示所有指标或写自己的过滤器。例如，我想显示CPU系统时间为哪个名字开始与所有主机后端的所有主机组。我用`/.*/`为Group`/ ^backend/`用于主机和CPU system time的项目。
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-regex_backend_system_time.png)
+
+
+### 条图
+
+
+让我们创建一个显示MySQL数据库的查询统计的图表。选择组，主机，应用程序（MySQL的在我的情况）和项目。我用`/MySQL .* operations/`正则表达式来过滤不同类型的操作。
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-mysql_operations_1.png)
+
+要显示图形为条形图，转到显示选项卡，取消选中线并设置Bars。此外，启用堆栈复选框显示堆叠条形。
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-mysql_operations_2.png)
+
+但是，因为它包含了太多的Bars这个图看起来并不好。我们可以通过修复它最大的数据点的参数。进入度量选项卡并设置最大数据点到50为例。
+
+![](http://docs.grafana-zabbix.org/img/getstarting-mysql_operations_3.png)
+
+好了。
+
+###Singlestat和仪表
+
+有时你可能需要出示只为特定指标一个大单值。使用Grafana的Singlestat面板在这种情况下。让我们创建面板，显示CPU用户时间指标。
+
+![](http://docs.grafana-zabbix.org/img/getstarting-singlestat_1.png)
+
+
+3.添加监控项
+
+``` bash
+点击Add添加
+我们现在需要以下的监控项：
+group代表所有Zabbix监控模板，
+host代表zabbix的监控主机，
+application代表主机下的监控类型，
+items代表监控类型下的监控项。
+如果只用上面这几种监控选择，要么仪表中需要显示一个监控类型下的某几个监控项，将需要的监控项合成一个新的监控。下面显示的是已经添加好的监控，这里只上传添加的内容，具体的步骤按内容写就可以。
+注意：参数中，“*”的意思就是全匹配，比如MySQL.*就是MySQL下所有的监控项。  
+```
+
+
 
 ![](https://cloud.githubusercontent.com/assets/4932851/8288883/9ec5b240-1921-11e5-9e0f-04d075b885e9.gif)
