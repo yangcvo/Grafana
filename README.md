@@ -77,6 +77,19 @@ Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格
 
 ## 入门Grafana-zabbix 
 
+
+``` bash
+点击Add添加
+我们现在需要以下的监控项：
+group代表所有Zabbix监控模板，
+host代表zabbix的监控主机，
+application代表主机下的监控类型，
+items代表监控类型下的监控项。
+如果只用上面这几种监控选择，要么仪表中需要显示一个监控类型下的某几个监控项，将需要的监控项合成一个新的监控。下面显示的是已经添加好的监控，这里只上传添加的内容，具体的步骤按内容写就可以。
+注意：参数中，“*”的意思就是全匹配，比如MySQL.*就是MySQL下所有的监控项。  
+```
+
+
 你经过安装和配置 Grafana-的zabbix数据源，让我们创建一个简单的仪表板。
 
 ### 简单图
@@ -136,19 +149,14 @@ Grafana 主要特性：灵活丰富的图形化选项；可以混合多种风格
 ![](http://docs.grafana-zabbix.org/img/getstarting-singlestat_1.png)
 
 
-3.添加监控项
+假设你要设置单位百分比，并显示仪表该值。进入选项卡，并设置单位百分比（0-100） 。然后，使显示的选项计和（在本例0-100）为度量标准设置的最小值和最大值。设置阈值，如果你想看到它在计（`50,80`为例）。
 
-``` bash
-点击Add添加
-我们现在需要以下的监控项：
-group代表所有Zabbix监控模板，
-host代表zabbix的监控主机，
-application代表主机下的监控类型，
-items代表监控类型下的监控项。
-如果只用上面这几种监控选择，要么仪表中需要显示一个监控类型下的某几个监控项，将需要的监控项合成一个新的监控。下面显示的是已经添加好的监控，这里只上传添加的内容，具体的步骤按内容写就可以。
-注意：参数中，“*”的意思就是全匹配，比如MySQL.*就是MySQL下所有的监控项。  
-```
+![](http://docs.grafana-zabbix.org/img/getstarting-singlestat_2.png)
 
+太好了，看起来很酷。了解更多关于Singlestat面板[Grafana文档](http://docs.grafana.org/reference/singlestat/)。
+
+
+![](http://docs.grafana-zabbix.org/img/getstarting-dashboard_1.png)
 
 
 ![](https://cloud.githubusercontent.com/assets/4932851/8288883/9ec5b240-1921-11e5-9e0f-04d075b885e9.gif)
